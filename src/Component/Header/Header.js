@@ -8,12 +8,14 @@ function Header (){
         return (
             <div className={styles.header}>
                 <IconButton>
-                    <ForumIcon className={styles.headerIcon} fontSize={"large"}/>
+                    <PersonIcon className={styles.headerIcon} fontSize={"large"}/>
                 </IconButton>
                 <img className={styles.headerLogo} src={"https://1000logos.net/wp-content/uploads/2018/07/tinder-logo.png"} alt={"tinderLogo"}/>
                 <IconButton>
-                    <PersonIcon className={styles.headerIcon} fontSize={"large"}/>
+                    <ForumIcon className={styles.headerIcon} fontSize={"large"}/>
                 </IconButton>
+
+
 
             </div>
         );
