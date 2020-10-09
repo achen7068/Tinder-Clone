@@ -16,6 +16,7 @@ function App() {
                 </Route>
                 <Route path={"/"}>
                     <TinderCards/>
+                    
                 </Route>
             </switch>
         </Router>

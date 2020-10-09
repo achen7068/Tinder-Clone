@@ -1,22 +1,17 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import TinderCard from "react-tinder-card";
+import database from "../../Firebase";
 import styles from "./TinderCard.module.css";
 
 function TinderCards () {
 
-    const [people, setPeople] = useState([
-        {
-            name: 'Ariana Grande',
-            url: 'https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTQ3MzM3MTcxNjA5NTkzNjQ3/ariana_grande_photo_jon_kopaloff_getty_images_465687098.jpg'
-        },
-        {
-            name: 'Pokimane',
-            url: 'https://pbs.twimg.com/media/DPvx6x-U8AAX_HA.jpg'
-        }
+    const [people, setPeople] = useState([]);
 
-    ]);
-
-
+    useEffect(() => {
+        database.collection('people').onSnapshot(snapshot => (
+           setPeople(snapshot.docs.map(doc => doc.data()))
+        ))
+    },[])
 
         return (
             <div className={styles.container}>
@@ -33,7 +28,6 @@ function TinderCards () {
                 ))}
             </div>
         );
-
 }
 
 export default TinderCards;
